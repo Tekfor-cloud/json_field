@@ -1,6 +1,6 @@
 {
     "name": "Json field",
-    "version": "13.0.0.0.1",
+    "version": "14.0.0.0.1",
     "category": "Field type",
     "author": "Article714",
     "license": "LGPL-3",
