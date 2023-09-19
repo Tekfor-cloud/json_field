@@ -2,11 +2,9 @@ from odoo import models, api
 from odoo.osv.query import Query
 from . import expression
 
-import logging
-
 
 class JsonModels(models.AbstractModel):
-    """ Main super-class for regular database-persisted Odoo models.
+    """Main super-class for regular database-persisted Odoo models.
 
     Odoo models are created by inheriting from this class::
 
