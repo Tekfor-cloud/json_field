@@ -9,6 +9,7 @@ CAST = ("::INT", "::DATE")
 class JsonExpression(expression.expression):
     def _expression__leaf_to_sql(self, leaf, model, alias):
         left, operator, right = leaf
+        table_alias = '"%s"' % alias
 
         if operator == "json":
             json_operator = []
@@ -26,7 +27,7 @@ class JsonExpression(expression.expression):
                     json_operator.append("%s")
                     params.append(element)
 
-            column = '"{}".{}'.format(alias, expression._quote(left))
+            column = "%s.%s" % (table_alias, expression._quote(left))
             query = "(({}{}){} {} %s)".format(
                 column, "".join(json_operator), cast, sql_operator
             )
