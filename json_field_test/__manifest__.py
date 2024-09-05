@@ -1,6 +1,6 @@
 {
     "name": "Json field test",
-    "version": "14.0.0.0.1",
+    "version": "15.0.0.0.1",
     "category": "Field type",
     "author": "Article714",
     "license": "LGPL-3",
@@ -14,7 +14,6 @@
         "views/menus.xml",
         "views/test_json_view.xml",
     ],
-    "qweb": ["static/src/xml/qweb_template.xml"],
     "installable": True,
     "images": [],
     "application": True,

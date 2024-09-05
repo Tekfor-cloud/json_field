@@ -2,16 +2,16 @@
 <templates>
     <t t-name="JsonFieldErrors">
         <div t-att-id="'jsonfielderror_' + id">
-            <p t-foreach="errors" 
+            <p t-foreach="errors"
                 t-as="error">
                 <p class="text-danger">
                     <span class="text-danger fa fa-exclamation-triangle" />
                     <b>
                         <t t-if="error.dataPath">
-                            <t t-esc="error.dataPath.replace('.', '') + ' - ' + error.message" />
+                            <t t-out="error.dataPath.replace('.', '') + ' - ' + error.message" />
                         </t>
                         <t t-else="">
-                            <t t-esc="error.message" />
+                            <t t-out="error.message" />
                         </t>
                     </b>
                 </p>
@@ -21,7 +21,7 @@
 
     <t t-name="JsonFieldRaw">
         <t t-if="edit">
-            <textarea class="o_field_text o_field_widget o_input json_value_raw" 
+            <textarea class="o_field_text o_field_widget o_input json_value_raw"
                 type="text" />
         </t>
         <t t-else="">
@@ -35,7 +35,7 @@
                 <tr>
                     <th class="o_column">
                         <span>Key</span>
-                        <i t-if="addEditButton" 
+                        <i t-if="addEditButton"
                             class="fa fa-plus json_add_row" />
                     </th>
                     <th class="o_column">Value</th>
@@ -54,22 +54,22 @@
 
     <t t-name="JsonFieldRow">
         <tr>
-            <td class="o_data_cell json_key" 
-                t-att-style="'padding-left: ' + deep_level * 30 + 'px'" 
+            <td class="o_data_cell json_key"
+                t-att-style="'padding-left: ' + deep_level * 30 + 'px'"
                 t-att-path="path">
                 <t t-call="JsonFieldRowKeyCell" />
             </td>
             <td class="o_data_cell json_value">
                 <t t-if="!is_object">
                     <t t-if="edit">
-                        <input t-att-class="'o_input' + (required ? ' o_required_modifier' : '')" 
-                            t-att-value="value" 
-                            t-att-type="input_type" 
-                            t-att-json-type="json_type" 
+                        <input t-att-class="'o_input' + (required ? ' o_required_modifier' : '')"
+                            t-att-value="value"
+                            t-att-type="input_type"
+                            t-att-json-type="json_type"
                             t-att-path="path" />
                     </t>
-                    <t t-else="" 
-                        t-esc="value" />
+                    <t t-else=""
+                        t-out="value" />
                 </t>
             </td>
         </tr>
@@ -78,19 +78,19 @@
 
     <t t-name="JsonFieldRowKeyCell">
         <t t-if="edit_key">
-            <input class="o_input input_json_edit_key" 
-                type="text" 
-                t-att-value="key" 
+            <input class="o_input input_json_edit_key"
+                type="text"
+                t-att-value="key"
                 t-att-path="path" />
         </t>
         <t t-else="">
-            <t t-esc="key" />
+            <t t-out="key" />
             <t t-if="addEditButton">
-                <i class='fa fa-pencil json_edit_key json_key_button' 
+                <i class='fa fa-pencil json_edit_key json_key_button'
                     t-att-path="path" />
-                <i class='fa fa-plus json_add_row json_key_button' 
+                <i class='fa fa-plus json_add_row json_key_button'
                     t-att-path="path" />
-                <i class='fa fa-trash-o json_delete_key json_key_button' 
+                <i class='fa fa-trash-o json_delete_key json_key_button'
                     t-att-path="path" />
             </t>
         </t>
