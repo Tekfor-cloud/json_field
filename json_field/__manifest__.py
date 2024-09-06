@@ -7,7 +7,6 @@
     "website": "https://www.article714.org",
     "summary": """ """,
     "depends": ["base", "web"],
-    "data": ["views/templates.xml"],
     "assets": {
         "web.assets_backend": [
             "json_field/static/src/js/json_field.js",
