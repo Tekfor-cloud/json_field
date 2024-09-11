@@ -1,5 +1,5 @@
 from odoo import models, api
-from odoo.osv.query import Query
+from odoo.tools import Query
 from . import expression
 
 
